@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { Globe, MapPin, TrendingUp } from "lucide-react"
-
+import {WorldMapDemo} from "../worldMapDemo"
 const GlobalPresenceSection = () => {
   const globalPresence = [
     { region: "North America", countries: "USA, Canada, Mexico", stores: "2,500+" },
@@ -19,6 +19,9 @@ const GlobalPresenceSection = () => {
         <p className="section-subtitle">
           Serving premium frozen products to customers across four continents with the same commitment to quality
         </p>
+        <div>
+          <WorldMapDemo/>
+        </div>
 
         {/* <div className="global-presence-grid">
           {globalPresence.map((region, index) => (
