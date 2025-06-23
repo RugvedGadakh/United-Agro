@@ -32,7 +32,7 @@ export function WorldMapDemo() {
   return (
     <section className="section features-section">
       <div className="container">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -47,7 +47,7 @@ export function WorldMapDemo() {
             Our premium frozen food products are exported to countries across the globe, 
             bringing farm-fresh goodness to international markets while maintaining the highest quality standards.
           </p>
-        </motion.div>
+        </motion.div> */}
 
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16 mb-12">
           {/* Map on the left - Made bigger and end-to-end */}

@@ -25,7 +25,7 @@ const About = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
     >
-      Your trusted partner in premium frozen food products since 2010
+      Your trusted partner in premium frozen food products since 2013
     </motion.p>
   </div>
 </section>
