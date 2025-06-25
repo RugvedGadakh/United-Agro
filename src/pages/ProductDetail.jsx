@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { ArrowLeft, Check } from "lucide-react"
-import { allProducts } from "../data/products"
 import "./ProductDetail.css"
 
 const ProductDetail = () => {
@@ -14,12 +13,22 @@ const ProductDetail = () => {
   const [activeTab, setActiveTab] = useState("description")
 
   useEffect(() => {
-    // Simulate API fetch
-    setTimeout(() => {
-      const foundProduct = allProducts.find((p) => p.id.toString() === id)
-      setProduct(foundProduct)
-      setLoading(false)
-    }, 800)
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(`https://agro-food-tech-be.onrender.com/api/products/${id}`)
+        if (!response.ok) {
+          throw new Error("Failed to fetch product")
+        }
+        const data = await response.json()
+        setProduct(data)
+      } catch (error) {
+        console.error("Error fetching product:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchProduct()
   }, [id])
 
   if (loading) {
@@ -88,10 +97,16 @@ const ProductDetail = () => {
                 >
                   Description
                 </button>
-                <button className={activeTab === "nutrition" ? "active" : ""} onClick={() => setActiveTab("nutrition")}>
+                <button
+                  className={activeTab === "nutrition" ? "active" : ""}
+                  onClick={() => setActiveTab("nutrition")}
+                >
                   Nutrition Facts
                 </button>
-                <button className={activeTab === "storage" ? "active" : ""} onClick={() => setActiveTab("storage")}>
+                <button
+                  className={activeTab === "storage" ? "active" : ""}
+                  onClick={() => setActiveTab("storage")}
+                >
                   Storage & Usage
                 </button>
               </div>

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import ProductCard from "../components/ProductCard"
-import { allProducts } from "../data/products"
 import "./Products.css"
 
 const Products = () => {
@@ -12,14 +11,26 @@ const Products = () => {
   const [filter, setFilter] = useState("all")
 
   useEffect(() => {
-    // Simulate API fetch
-    setTimeout(() => {
-      setProducts(allProducts)
-      setLoading(false)
-    }, 1000)
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("https://agro-food-tech-be.onrender.com/api/products")
+        if (!response.ok) {
+          throw new Error("Failed to fetch products")
+        }
+        const data = await response.json()
+        setProducts(data)
+      } catch (error) {
+        console.error("Error fetching products:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchProducts()
   }, [])
 
-  const filteredProducts = filter === "all" ? products : products.filter((product) => product.category === filter)
+  const filteredProducts =
+    filter === "all" ? products : products.filter((product) => product.category === filter)
 
   const handleFilterChange = (category) => {
     setFilter(category)
@@ -71,7 +82,14 @@ const Products = () => {
             <>
               <div className="products-grid">
                 {filteredProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                  <motion.div
+                    key={product._id}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ProductCard product={product} />
+                  </motion.div>
                 ))}
               </div>
 
