@@ -24,7 +24,7 @@ const BusinessStoriesSection = () => {
         "We use cutting-edge technologies like high-speed IQF systems, automated packing, and AI quality checks to deliver fresh, nutritious food — without preservatives. \“Our 3-second freeze locks in nutrition and flavor.\” — Mr. Santosh Thorat, Founder",
       category: "innovation",
       date: "2024-01-15",
-      image: "images/story1.jpg?height=250&width=400",
+      image: "https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751022196/story1_btmhxc.jpg",
       featured: true,
     },
     {
@@ -34,7 +34,7 @@ const BusinessStoriesSection = () => {
         "We work with 2,000+ farmers who follow Good Agricultural Practices. Our cold chain and waste-reduction efforts help protect the planet while delivering safe, sustainable food.",
       category: "sustainability",
       date: "2024-01-10",
-      image: "images/story2.jpg?height=250&width=400",
+      image: "https://res.cloudinary.com/dcxxiwmdo/image/upload/v1750959150/story2_g80nk7.jpg",
       featured: false,
     },
     {
@@ -43,7 +43,7 @@ const BusinessStoriesSection = () => {
       excerpt: "From agribusiness leadership to cold chain innovation and community impact, our efforts have earned national recognition.",
       category: "awards",
       date: "2024-01-05",
-      image: "images/story3.jpg?height=250&width=400",
+      image: "https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751022196/story3_ceaxng.jpg",
       featured: false,
     },
     {
@@ -53,7 +53,7 @@ const BusinessStoriesSection = () => {
         "We empower rural farmers with training, fair pricing, and reliable income. By working closely with local communities, we grow together.",
       category: "community",
       date: "2023-12-20",
-      image: "images/story4.jpg?height=250&width=400",
+      image: "https://res.cloudinary.com/dcxxiwmdo/image/upload/v1750959150/story4_gldjpk.jpg",
       featured: false,
     },
     {
@@ -62,7 +62,7 @@ const BusinessStoriesSection = () => {
       excerpt: "To reduce our carbon footprint, we’ve transitioned part of our cold storage facility to run on solar power. This shift not only cuts emissions but also promotes cleaner, more energy-efficient operations — making our frozen food truly future-ready.",
       category: "sustainability",
       date: "2023-12-15",
-      image: "images/story5.jpg?height=250&width=400",
+      image: "https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751022348/story5_11zon_ycn6wy.jpg",
       featured: false,
     },
     {
@@ -72,7 +72,7 @@ const BusinessStoriesSection = () => {
         "We recently introduced moisture-resistant, recyclable packaging that keeps frozen products fresher for longer while reducing environmental impact. Designed with consumer convenience in mind, our new packs are easy to open, reseal, and store — all while being eco-friendly.",
       category: "innovation",
       date: "2023-12-10",
-      image: "images/story6.jpg?height=250&width=400",
+      image: "https://res.cloudinary.com/dcxxiwmdo/image/upload/v1750959150/story6_ypc9za.jpg",
       featured: false,
     },
   ]

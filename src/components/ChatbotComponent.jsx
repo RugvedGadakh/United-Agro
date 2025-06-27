@@ -8,7 +8,7 @@ import "./ChatbotComponent.css"
 const ChatbotComponent = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState([
-    { text: "Hello! I'm your FrozenDelights assistant. How can I help you today?", isBot: true },
+    { text: "Hello! I'm your UnitedAgro assistant. How can I help you today?", isBot: true },
   ])
   const [input, setInput] = useState("")
   const [isTyping, setIsTyping] = useState(false)
@@ -55,7 +55,7 @@ const ChatbotComponent = () => {
           "We deliver across the country. Shipping costs depend on your location and order size. For bulk orders, we offer special shipping rates."
       } else if (userInput.includes("contact") || userInput.includes("talk")) {
         botResponse =
-          "You can reach our customer service team at info@frozendelights.com or call us at +1 (555) 123-4567 during business hours."
+          "You can reach our customer service team at info@UnitedAgro.com or call us at +1 (555) 123-4567 during business hours."
       } else if (userInput.includes("brochure") || userInput.includes("catalog")) {
         botResponse =
           "You can download our product brochure from the Brochure page on our website. It contains detailed information about all our products."
@@ -84,7 +84,7 @@ const ChatbotComponent = () => {
             transition={{ duration: 0.3 }}
           >
             <div className="chatbot-header">
-              <h3>FrozenDelights Support</h3>
+              <h3>UnitedAgro Support</h3>
               <span>We typically reply within minutes</span>
             </div>
 

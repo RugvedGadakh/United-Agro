@@ -4,7 +4,7 @@
 
 .about-hero {
   position: relative;
-  /* background: url("/public/images/AboutBg.jpg") center center / cover no-repeat; */
+  background: url("https://res.cloudinary.com/dcxxiwmdo/image/upload/v1750959150/AboutBg_hie7kd.jpg") center center / cover no-repeat;
   padding: 100px 20px;
   text-align: center;
   color: white;

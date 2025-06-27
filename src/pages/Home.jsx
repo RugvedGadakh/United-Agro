@@ -16,12 +16,12 @@ const Home = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "FrozenDelights - Premium Frozen Corn & Vegetable Products",
+    name: "UnitedAgro - Premium Frozen Corn & Vegetable Products",
     description: "Premium frozen corn and vegetable products. Farm-fresh quality, flash-frozen to preserve nutrients.",
-    url: "https://frozendelights.com",
+    url: "https://UnitedAgro.com",
     mainEntity: {
       "@type": "Organization",
-      name: "FrozenDelights",
+      name: "UnitedAgro",
       description: "Leading supplier of premium frozen corn and vegetable products",
     },
   }
@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>FrozenDelights - Premium Frozen Corn & Vegetable Products | Farm Fresh Quality</title>
+        <title>UnitedAgro - Premium Frozen Corn & Vegetable Products | Farm Fresh Quality</title>
         <meta
           name="description"
           content="Premium frozen corn and vegetable products. Farm-fresh quality, flash-frozen to preserve nutrients. Wholesale and retail frozen food supplier with nationwide delivery."
@@ -38,7 +38,7 @@ const Home = () => {
           name="keywords"
           content="frozen corn, frozen vegetables, sweet corn, frozen food supplier, wholesale frozen vegetables, premium frozen products, farm fresh frozen corn"
         />
-        <link rel="canonical" href="https://frozendelights.com" />
+        <link rel="canonical" href="https://UnitedAgro.com" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 

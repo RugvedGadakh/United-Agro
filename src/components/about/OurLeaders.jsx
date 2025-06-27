@@ -12,7 +12,7 @@ const OurLeaders = () => {
       bio: "With over 20 years in agriculture, Maria leads our vision for sustainable farming and quality excellence.",
       achievements: ["Agricultural Innovation Award 2022", "Women in Business Leadership 2021"],
       linkedin: "#",
-      email: "maria@frozendelights.com",
+      email: "maria@UnitedAgro.com",
     },
     {
       name: "Carlos Rodriguez",
@@ -21,7 +21,7 @@ const OurLeaders = () => {
       bio: "Carlos brings cutting-edge technology to traditional farming, revolutionizing our preservation processes.",
       achievements: ["Technology Innovation Award 2023", "Sustainable Processing Excellence 2022"],
       linkedin: "#",
-      email: "carlos@frozendelights.com",
+      email: "carlos@UnitedAgro.com",
     },
     {
       name: "Dr. Sarah Chen",
@@ -30,7 +30,7 @@ const OurLeaders = () => {
       bio: "PhD in Food Science, Sarah ensures every product meets our rigorous quality and safety standards.",
       achievements: ["Food Safety Excellence Award 2023", "Research Innovation Grant 2021"],
       linkedin: "#",
-      email: "sarah@frozendelights.com",
+      email: "sarah@UnitedAgro.com",
     },
     {
       name: "Michael Thompson",
@@ -39,7 +39,7 @@ const OurLeaders = () => {
       bio: "15+ years optimizing supply chains and operations, ensuring efficient delivery of quality products.",
       achievements: ["Operations Excellence Award 2022", "Supply Chain Innovation 2021"],
       linkedin: "#",
-      email: "michael@frozendelights.com",
+      email: "michael@UnitedAgro.com",
     },
   ]
 

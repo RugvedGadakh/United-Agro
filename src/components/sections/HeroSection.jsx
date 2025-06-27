@@ -15,7 +15,7 @@ const HeroSection = () => {
         playsInline
         className="hero-background-video"
       >
-        <source src="videos/HeroVideo.mp4" type="video/mp4" />
+<source src="https://res.cloudinary.com/dcxxiwmdo/video/upload/qnyojlmnfwtzhwdjq77v.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

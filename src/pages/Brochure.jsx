@@ -96,7 +96,7 @@ const Brochure = () => {
               <div className="brochure-preview">
                 <div className="brochure-cover">
                   <FileText size={80} />
-                  <h3>FrozenDelights</h3>
+                  <h3>UnitedAgro</h3>
                   <p>Product Catalog 2024</p>
                 </div>
               </div>

@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="container footer-container">
         <div className="footer-section">
-          <h3>FrozenDelights</h3>
+          <h3>UnitedAgro</h3>
           <p>Premium quality frozen food products for your everyday needs. Taste the freshness, frozen in time.</p>
           <div className="social-icons">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -71,7 +71,7 @@ const Footer = () => {
               <Phone size={16} /> +1 (555) 123-4567
             </p>
             <p>
-              <Mail size={16} /> info@frozendelights.com
+              <Mail size={16} /> info@UnitedAgro.com
             </p>
             <p>
               <MapPin size={16} /> 123 Frozen Lane, Iceville, FL 12345
