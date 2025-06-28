@@ -53,6 +53,7 @@
   z-index: 1;
 }
 
+/* Left text section */
 .vision-mission-text {
   flex: 1;
   min-width: 280px;
@@ -64,7 +65,6 @@
   font-size: 2rem;
   margin-bottom: 16px;
   color: var(--white);
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .vision-mission-text p {
@@ -74,6 +74,7 @@
   color: var(--white);
 }
 
+/* Right image section */
 .vision-mission-image {
   flex: 1;
   min-width: 280px;
@@ -85,6 +86,58 @@
   height: auto;
   border-radius: 16px;
   box-shadow: var(--shadow-lg);
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 992px) {
+  .section-header h2 {
+    font-size: 2.4rem;
+  }
+
+  .section-header p {
+    font-size: 1rem;
+  }
+
+  .vision-mission-wrapper {
+    flex-direction: column;
+    padding: 40px 30px;
+    gap: 32px;
+  }
+
+  .vision-mission-text, .vision-mission-image {
+    width: 100%;
+    text-align: center;
+  }
+
+  .vision-mission-text h3 {
+    font-size: 1.6rem;
+  }
+
+  .vision-mission-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .section-header p {
+    font-size: 0.95rem;
+  }
+
+  .vision-mission-wrapper {
+    padding: 30px 20px;
+  }
+
+  .vision-mission-text h3 {
+    font-size: 1.4rem;
+  }
+
+  .vision-mission-text p {
+    font-size: 0.95rem;
+  }
 }
 
 

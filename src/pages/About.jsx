@@ -57,7 +57,7 @@ const About = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <img src="images/about.jpg?height=400&width=500" alt="Our facility" />
+              <img src="https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751119066/about1_11zon_qyl6wk.jpg" alt="Our facility" />
             </motion.div>
           </div>
         </div>

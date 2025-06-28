@@ -52,7 +52,7 @@ const Contact = () => {
                   <div className="contact-icon">
                     <Mail size={20} />
                   </div>
-                  <div>
+                  <div className="info">
                     <h4>Email</h4>
                     <p>info@UnitedAgro.com</p>
                     <p>sales@UnitedAgro.com</p>

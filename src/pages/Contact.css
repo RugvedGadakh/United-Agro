@@ -74,11 +74,19 @@
   border-radius: 2px;
 }
 
-.contact-info > p {
+.contact-info p {
   color: var(--gray-600);
   margin-bottom: 40px;
   line-height: 1.7;
   font-size: 1.1rem;
+}
+
+.contact-item a{
+  color: var(--gray-800);
+}
+
+.contact-item span{
+  color: var(--gray-800);
 }
 
 .contact-details {

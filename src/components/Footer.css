@@ -54,7 +54,6 @@
 }
 
 .footer-logo h3::after {
-  content: "🌽";
   position: absolute;
   top: -2px;
   right: -30px;

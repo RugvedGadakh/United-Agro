@@ -69,7 +69,7 @@ const VisionMission = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <img src="/images/about.jpg" alt="Vision and Mission" />
+            <img src="https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751118918/about_11zon_ivriwa.jpg" alt="Vision and Mission" />
           </motion.div>
         </div>
         <div>
