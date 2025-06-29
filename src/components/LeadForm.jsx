@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send, CheckCircle } from "lucide-react"
-import "./LeadForm.css"
 
 const LeadForm = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +29,6 @@ const LeadForm = () => {
     e.preventDefault()
     setLoading(true)
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.interest) {
       alert("Please fill out all required fields.")
       setLoading(false)
@@ -55,14 +53,11 @@ const LeadForm = () => {
         body: JSON.stringify(payload),
       })
 
-      if (!response.ok) {
-        throw new Error("Failed to submit form")
-      }
+      if (!response.ok) throw new Error("Failed to submit form")
 
       setSubmitted(true)
       setLoading(false)
 
-      // Reset form after 3 seconds
       setTimeout(() => {
         setSubmitted(false)
         setFormData({
@@ -82,73 +77,80 @@ const LeadForm = () => {
   }
 
   return (
-    <div className="lead-form-container">
+    <div className="relative mx-auto max-w-xl w-full bg-white rounded-2xl border border-gray-200 shadow-lg p-8 sm:p-10">
+      <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-green-500 to-lime-400 rounded-t-md" />
+
       {!submitted ? (
         <motion.form
-          className="lead-form"
           onSubmit={handleSubmit}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="form-group">
-            <label htmlFor="name">Full Name*</label>
+          <div className="flex flex-col">
+            <label htmlFor="name" className="mb-2 text-gray-700 font-medium text-sm">Full Name*</label>
             <input
-              type="text"
               id="name"
               name="name"
+              type="text"
               value={formData.name}
               onChange={handleChange}
-              required
               autoComplete="name"
+              required
+              className="px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-400 transition"
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email Address*</label>
+          <div className="flex flex-col">
+            <label htmlFor="email" className="mb-2 text-gray-700 font-medium text-sm">Email Address*</label>
             <input
-              type="email"
               id="email"
               name="email"
+              type="email"
               value={formData.email}
               onChange={handleChange}
-              required
               autoComplete="email"
+              required
+              className="px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-400 transition"
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
+          <div className="flex flex-col">
+            <label htmlFor="phone" className="mb-2 text-gray-700 font-medium text-sm">Phone Number</label>
             <input
-              type="tel"
               id="phone"
               name="phone"
+              type="tel"
               value={formData.phone}
               onChange={handleChange}
               autoComplete="tel"
+              className="px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-400 transition"
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="company">Company Name</label>
+          <div className="flex flex-col">
+            <label htmlFor="company" className="mb-2 text-gray-700 font-medium text-sm">Company Name</label>
             <input
-              type="text"
               id="company"
               name="company"
+              type="text"
               value={formData.company}
               onChange={handleChange}
               autoComplete="organization"
+              className="px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-400 transition"
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="interest">Interested In*</label>
+          <div className="flex flex-col sm:col-span-2">
+            <label htmlFor="interest" className="mb-2 text-gray-700 font-medium text-sm">Interested In*</label>
             <select
               id="interest"
               name="interest"
               value={formData.interest}
               onChange={handleChange}
               required
+              className="px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-400 transition"
             >
               <option value="">Select an option</option>
               <option value="WholeSale Purchase">Wholesale Purchase</option>
@@ -158,37 +160,38 @@ const LeadForm = () => {
             </select>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
+          <div className="flex flex-col sm:col-span-2">
+            <label htmlFor="message" className="mb-2 text-gray-700 font-medium text-sm">Message</label>
             <textarea
               id="message"
               name="message"
+              rows={4}
               value={formData.message}
               onChange={handleChange}
-              rows={4}
-            ></textarea>
+              className="px-4 py-3 border-2 border-gray-200 rounded-xl resize-y min-h-[120px] focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-400 transition"
+            />
           </div>
 
-          <button type="submit" className="btn btn-submit" disabled={loading}>
-            {loading ? (
-              "Sending..."
-            ) : (
-              <>
-                Submit <Send size={16} />
-              </>
-            )}
+          <button
+            type="submit"
+            disabled={loading}
+            className="sm:col-span-2 mt-2 px-6 py-3 bg-gradient-to-r from-green-500 to-lime-500 text-white font-semibold text-base rounded-xl flex items-center justify-center gap-2 hover:shadow-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {loading ? "Sending..." : <>Submit <Send size={16} /></>}
           </button>
         </motion.form>
       ) : (
         <motion.div
-          className="form-success"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
+          className="text-center py-12 px-4 text-green-600"
         >
-          <CheckCircle size={60} />
-          <h3>Thank You!</h3>
-          <p>Your information has been submitted successfully. Our team will contact you shortly.</p>
+          <CheckCircle size={60} className="mx-auto mb-4" />
+          <h3 className="text-2xl font-bold text-gray-900 mb-3">Thank You!</h3>
+          <p className="max-w-md mx-auto text-gray-700 text-lg leading-relaxed">
+            Your information has been submitted successfully. Our team will contact you shortly.
+          </p>
         </motion.div>
       )}
     </div>

@@ -10,7 +10,6 @@ import GlobalPresenceSection from "../components/sections/GlobalPresenceSection"
 import LeadSection from "../components/sections/LeadSection"
 import BusinessStoriesSection from "../components/sections/BusinessStoriesSection"
 
-import "./Home.css"
 
 const Home = () => {
   const structuredData = {

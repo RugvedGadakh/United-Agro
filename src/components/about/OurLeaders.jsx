@@ -32,66 +32,74 @@ const OurLeaders = () => {
       linkedin: "#",
       email: "sarah@UnitedAgro.com",
     },
-    {
-      name: "Michael Thompson",
-      position: "VP of Operations",
-      image: "/placeholder.svg?height=300&width=300",
-      bio: "15+ years optimizing supply chains and operations, ensuring efficient delivery of quality products.",
-      achievements: ["Operations Excellence Award 2022", "Supply Chain Innovation 2021"],
-      linkedin: "#",
-      email: "michael@UnitedAgro.com",
-    },
   ]
 
   return (
-    <section className="leaders-section">
-      <div className="container">
+    <section className="py-20 bg-green-50">
+      <div className="max-w-6xl mx-auto px-4">
         <motion.div
-          className="section-header"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2>Meet Our Leadership Team</h2>
-          <p>Visionary leaders driving innovation and excellence</p>
+          <h2 className="text-5xl font-bold text-gray-900 mb-3">Meet Our Leadership Team</h2>
+          <p className="text-lg text-gray-600">Visionary leaders driving innovation and excellence</p>
         </motion.div>
 
-        <div className="leaders-grid">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {leaders.map((leader, index) => (
             <motion.div
               key={index}
-              className="leader-card"
+              className="bg-white border-2 border-green-100 rounded-xl shadow-xl overflow-hidden hover:border-green-200 transition-all text-base"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
             >
-              <div className="leader-image">
-                <img src={leader.image || "/placeholder.svg"} alt={leader.name} />
-                <div className="leader-overlay">
-                  <div className="leader-social">
-                    <a href={leader.linkedin} aria-label="LinkedIn">
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={leader.image}
+                  alt={leader.name}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-3">
+                  <div className="flex gap-3">
+                    <a
+                      href={leader.linkedin}
+                      className="w-10 h-10 rounded-full bg-white text-green-600 flex items-center justify-center hover:bg-green-600 hover:text-white transition-all"
+                      aria-label="LinkedIn"
+                    >
                       <Linkedin size={20} />
                     </a>
-                    <a href={`mailto:${leader.email}`} aria-label="Email">
+                    <a
+                      href={`mailto:${leader.email}`}
+                      className="w-10 h-10 rounded-full bg-white text-green-600 flex items-center justify-center hover:bg-green-600 hover:text-white transition-all"
+                      aria-label="Email"
+                    >
                       <Mail size={20} />
                     </a>
                   </div>
                 </div>
               </div>
-              <div className="leader-info">
-                <h3>{leader.name}</h3>
-                <p className="leader-position">{leader.position}</p>
-                <p className="leader-bio">{leader.bio}</p>
-                <div className="leader-achievements">
-                  <h4>
-                    <Award size={16} /> Recent Achievements
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">{leader.name}</h3>
+                <p className="text-green-600 font-medium mb-2 text-base">{leader.position}</p>
+                <p className="text-gray-700 mb-4 leading-relaxed text-base">{leader.bio}</p>
+                <div>
+                  <h4 className="flex items-center gap-2 text-gray-900 font-semibold mb-2 text-base">
+                    <Award size={18} /> Recent Achievements
                   </h4>
-                  <ul>
+                  <ul className="list-none space-y-1 text-sm text-gray-600 pl-4">
                     {leader.achievements.map((achievement, idx) => (
-                      <li key={idx}>{achievement}</li>
+                      <li
+                        key={idx}
+                        className="relative pl-5 before:content-['🏆'] before:absolute before:left-0"
+                      >
+                        {achievement}
+                      </li>
                     ))}
                   </ul>
                 </div>

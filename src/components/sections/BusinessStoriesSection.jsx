@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { Calendar, ArrowRight, Tag, Clock } from "lucide-react"
-import "./sections.css"
 
 const BusinessStoriesSection = () => {
   const [activeCategory, setActiveCategory] = useState("all")
@@ -21,7 +20,7 @@ const BusinessStoriesSection = () => {
       id: 1,
       title: "Smarter. Faster. Fresher.",
       excerpt:
-        "We use cutting-edge technologies like high-speed IQF systems, automated packing, and AI quality checks to deliver fresh, nutritious food — without preservatives. \“Our 3-second freeze locks in nutrition and flavor.\” — Mr. Santosh Thorat, Founder",
+        "We use cutting-edge technologies like high-speed IQF systems, automated packing, and AI quality checks to deliver fresh, nutritious food — without preservatives. “Our 3-second freeze locks in nutrition and flavor.” — Mr. Santosh Thorat, Founder",
       category: "innovation",
       date: "2024-01-15",
       image: "https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751022196/story1_btmhxc.jpg",
@@ -101,23 +100,21 @@ const BusinessStoriesSection = () => {
   }
 
   return (
-    <section className="section business-stories-section">
-      <div className="container">
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
         <motion.div
-          className="section-header"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">Latest Stories & Updates</h2>
-          <p className="section-subtitle">
-            Stay updated with our latest innovations, achievements, and community initiatives
-          </p>
+          <h2 className="text-4xl font-bold mb-4">Latest Stories & Updates</h2>
+          <p className="text-gray-600 text-lg">Stay updated with our latest innovations, achievements, and community initiatives</p>
         </motion.div>
 
         <motion.div
-          className="category-filters"
+          className="flex flex-wrap justify-center gap-4 mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -126,7 +123,11 @@ const BusinessStoriesSection = () => {
           {categories.map((category) => (
             <button
               key={category.id}
-              className={`filter-btn ${activeCategory === category.id ? "active" : ""}`}
+              className={`px-6 py-2 rounded-full font-semibold shadow-sm border-2 transition-all duration-300 text-sm ${
+                activeCategory === category.id
+                  ? "bg-gradient-to-r from-green-400 to-green-600 text-white border-green-600"
+                  : "bg-white text-gray-700 border-green-200 hover:border-green-500 hover:text-green-600"
+              }`}
               onClick={() => setActiveCategory(category.id)}
             >
               {category.name}
@@ -134,78 +135,70 @@ const BusinessStoriesSection = () => {
           ))}
         </motion.div>
 
-        <div className="stories-grid">
+        <div className="grid gap-10">
           {featuredStory && activeCategory === "all" && (
             <motion.div
-              className="featured-story"
+              className="grid lg:grid-cols-2 gap-10 bg-green-50 rounded-3xl shadow-xl border-2 border-green-100"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <div className="story-image">
-                <img src={featuredStory.image || "/placeholder.svg"} alt={featuredStory.title} />
-                <div className="featured-badge">Featured</div>
+              <div className="relative h-[400px] overflow-hidden">
+                <img
+                  src={featuredStory.image || "/placeholder.svg"}
+                  alt={featuredStory.title}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-5 left-5 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
+                  Featured
+                </div>
               </div>
-              <div className="story-content">
-                <div className="story-meta">
-                  <span className={`category-tag ${getCategoryColor(featuredStory.category)}`}>
+              <div className="p-10 flex flex-col justify-center">
+                <div className="flex flex-wrap items-center gap-4 mb-4">
+                  <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold ${getCategoryColor(featuredStory.category)}`}>
                     <Tag size={14} />
                     {featuredStory.category}
                   </span>
-                  <div className="story-date">
-                    <Calendar size={14} />
-                    {formatDate(featuredStory.date)}
-                  </div>
-                  <div className="read-time">
-                    <Clock size={14} />
-                    {featuredStory.readTime}
+                  <div className="flex items-center gap-2 text-gray-500 text-sm">
+                    <Calendar size={14} /> {formatDate(featuredStory.date)}
                   </div>
                 </div>
-                <h3>{featuredStory.title}</h3>
-                <p>{featuredStory.excerpt}</p>
-                {/* <button className="read-more-btn">
-                  Read Full Story <ArrowRight size={16} />
-                </button> */}
+                <h3 className="text-2xl font-bold mb-4 text-gray-900 leading-snug">{featuredStory.title}</h3>
+                <p className="text-lg text-gray-600 leading-relaxed">{featuredStory.excerpt}</p>
               </div>
             </motion.div>
           )}
 
-          <div className="regular-stories">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {regularStories.map((story, index) => (
               <motion.div
                 key={story.id}
-                className="story-card"
+                className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-green-200 transition-transform duration-300 hover:-translate-y-2"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="story-image">
-                  <img src={story.image || "/placeholder.svg"} alt={story.title} />
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={story.image || "/placeholder.svg"}
+                    alt={story.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="story-content">
-                  <div className="story-meta">
-                    <span className={`category-tag ${getCategoryColor(story.category)}`}>
+                <div className="p-6">
+                  <div className="flex flex-wrap items-center gap-4 mb-3">
+                    <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold ${getCategoryColor(story.category)}`}>
                       <Tag size={12} />
                       {story.category}
                     </span>
-                    <div className="story-date">
-                      <Calendar size={12} />
-                      {formatDate(story.date)}
+                    <div className="flex items-center gap-2 text-gray-500 text-sm">
+                      <Calendar size={12} /> {formatDate(story.date)}
                     </div>
                   </div>
-                  <h4>{story.title}</h4>
-                  <p>{story.excerpt}</p>
-                  <div className="story-footer">
-                    {/* <span className="read-time">
-                      <Clock size={12} />
-                      {story.readTime}
-                    </span> */}
-                    {/* <button className="read-more-btn">
-                      Read More <ArrowRight size={14} />
-                    </button> */}
-                  </div>
+                  <h4 className="text-xl font-semibold mb-2 text-gray-900 leading-snug">{story.title}</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">{story.excerpt}</p>
                 </div>
               </motion.div>
             ))}
@@ -216,4 +209,4 @@ const BusinessStoriesSection = () => {
   )
 }
 
-export default BusinessStoriesSection
+export default BusinessStoriesSection;
