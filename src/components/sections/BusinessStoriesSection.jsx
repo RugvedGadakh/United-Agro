@@ -2,7 +2,13 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
+<<<<<<< HEAD
 import { Calendar, ArrowRight, Tag, Clock } from "lucide-react"
+=======
+import { Tag, Calendar, Clock, ArrowRight } from "lucide-react"
+import LazyImage from "../LazyImage"
+import "./sections.css"
+>>>>>>> cf2da1ac9e9775d9006a7a102dd9b3f4ed110103
 
 const BusinessStoriesSection = () => {
   const [activeCategory, setActiveCategory] = useState("all")
@@ -144,6 +150,7 @@ const BusinessStoriesSection = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
+<<<<<<< HEAD
               <div className="relative h-[400px] overflow-hidden">
                 <img
                   src={featuredStory.image || "/placeholder.svg"}
@@ -153,6 +160,11 @@ const BusinessStoriesSection = () => {
                 <div className="absolute top-5 left-5 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
                   Featured
                 </div>
+=======
+              <div className="story-image">
+                <LazyImage src={featuredStory.image || "/placeholder.svg"} alt={featuredStory.title} />
+                <div className="featured-badge">Featured</div>
+>>>>>>> cf2da1ac9e9775d9006a7a102dd9b3f4ed110103
               </div>
               <div className="p-10 flex flex-col justify-center">
                 <div className="flex flex-wrap items-center gap-4 mb-4">
@@ -180,12 +192,17 @@ const BusinessStoriesSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
+<<<<<<< HEAD
                 <div className="h-48 overflow-hidden">
                   <img
                     src={story.image || "/placeholder.svg"}
                     alt={story.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
+=======
+                <div className="story-image">
+                  <LazyImage src={story.image || "/placeholder.svg"} alt={story.title} />
+>>>>>>> cf2da1ac9e9775d9006a7a102dd9b3f4ed110103
                 </div>
                 <div className="p-6">
                   <div className="flex flex-wrap items-center gap-4 mb-3">

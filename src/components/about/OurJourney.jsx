@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import LazyImage from "../LazyImage"
 import { useState } from "react"
 import { MapPin, Factory, Award } from "lucide-react"
 
@@ -81,12 +82,17 @@ const OurJourney = () => {
             transition={{ duration: 0.5 }}
             className="grid md:grid-cols-2 gap-10 bg-green-50 p-8 rounded-2xl border-2 border-green-100"
           >
+<<<<<<< HEAD
             <div className="overflow-hidden rounded-xl shadow-xl">
               <img
                 src={milestones[activeYear].image || "/placeholder.svg"}
                 alt={milestones[activeYear].title}
                 className="w-full h-auto"
               />
+=======
+            <div className="timeline-image">
+              <LazyImage src={milestones[activeYear].image || "/placeholder.svg"} alt={milestones[activeYear].title} />
+>>>>>>> cf2da1ac9e9775d9006a7a102dd9b3f4ed110103
             </div>
             <div>
               <div className="text-5xl font-bold bg-gradient-to-r from-green-500 to-lime-500 bg-clip-text text-transparent mb-4">

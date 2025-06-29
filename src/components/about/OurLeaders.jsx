@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Linkedin, Mail, Award } from "lucide-react"
+import LazyImage from "../LazyImage"
 
 const OurLeaders = () => {
   const leaders = [
@@ -59,6 +60,7 @@ const OurLeaders = () => {
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
             >
+<<<<<<< HEAD
               <div className="relative h-64 overflow-hidden">
                 <img
                   src={leader.image}
@@ -72,6 +74,13 @@ const OurLeaders = () => {
                       className="w-10 h-10 rounded-full bg-white text-green-600 flex items-center justify-center hover:bg-green-600 hover:text-white transition-all"
                       aria-label="LinkedIn"
                     >
+=======
+              <div className="leader-image">
+                <LazyImage src={leader.image || "/placeholder.svg"} alt={leader.name} />
+                <div className="leader-overlay">
+                  <div className="leader-social">
+                    <a href={leader.linkedin} aria-label="LinkedIn">
+>>>>>>> cf2da1ac9e9775d9006a7a102dd9b3f4ed110103
                       <Linkedin size={20} />
                     </a>
                     <a

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Eye, Target, Heart, Zap, Leaf, Users } from "lucide-react"
+import LazyImage from "../LazyImage"
 
 const VisionMission = () => {
   const values = [
@@ -63,11 +64,15 @@ const VisionMission = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+<<<<<<< HEAD
             <img
               src="https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751118918/about_11zon_ivriwa.jpg"
               alt="Vision and Mission"
               className="max-w-full h-auto rounded-xl shadow-xl"
             />
+=======
+            <LazyImage src="https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751118918/about_11zon_ivriwa.jpg" alt="Vision and Mission" />
+>>>>>>> cf2da1ac9e9775d9006a7a102dd9b3f4ed110103
           </motion.div>
         </div>
 

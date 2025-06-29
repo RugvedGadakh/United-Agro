@@ -1,6 +1,7 @@
 "use client";
 import { WorldMap } from "../ui/world-map";
 import { motion } from "framer-motion"
+import LazyImage from "./LazyImage"
 import { Globe, TrendingUp } from "lucide-react";
 import { useState } from "react";
 import { hasFlag } from "country-flag-icons";
@@ -132,7 +133,7 @@ export function WorldMapDemo() {
                 >
                   <div className="w-16 h-10 mx-auto mb-3">
                     {hasFlag(country.countryCode) && (
-                      <img
+                      <LazyImage
                         src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.countryCode}.svg`}
                         alt={`${country.name} flag`}
                         className="w-full h-full object-contain"

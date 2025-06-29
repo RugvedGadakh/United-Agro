@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Award, Users, Leaf, Globe } from "lucide-react"
 import OurJourney from "../components/about/OurJourney"
+import LazyImage from "../components/LazyImage"
 import VisionMission from "../components/about/VisionMisson"
 import OurLeaders from "../components/about/OurLeaders"
 
@@ -53,6 +54,7 @@ const About = () => {
             </p>
           </motion.div>
 
+<<<<<<< HEAD
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -67,6 +69,18 @@ const About = () => {
               className="w-full h-auto rounded-xl transform transition-transform duration-300 hover:scale-105"
             />
           </motion.div>
+=======
+            <motion.div
+              className="about-image"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <LazyImage src="https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751119066/about1_11zon_qyl6wk.jpg" alt="Our facility" />
+            </motion.div>
+          </div>
+>>>>>>> cf2da1ac9e9775d9006a7a102dd9b3f4ed110103
         </div>
       </section>
 

@@ -2,6 +2,11 @@
 
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
+<<<<<<< HEAD
+=======
+import LazyImage from "./LazyImage"
+import "./ProductCard.css"
+>>>>>>> cf2da1ac9e9775d9006a7a102dd9b3f4ed110103
 
 const ProductCard = ({ product }) => {
   return (
@@ -12,6 +17,7 @@ const ProductCard = ({ product }) => {
       viewport={{ once: true }}
       className="relative rounded-2xl overflow-hidden border border-gray-100 bg-white shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-3 group"
     >
+<<<<<<< HEAD
       {/* Golden hover top bar */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-300 to-yellow-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-10" />
 
@@ -23,6 +29,10 @@ const ProductCard = ({ product }) => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+=======
+      <div className="product-image">
+        <LazyImage src={product.image || "/placeholder.svg"} alt={product.name} />
+>>>>>>> cf2da1ac9e9775d9006a7a102dd9b3f4ed110103
       </div>
 
       {/* Product info */}
