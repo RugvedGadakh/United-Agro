@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
+import LazyImage from "../components/LazyImage"
 import { motion } from "framer-motion"
 import { ArrowLeft, Check } from "lucide-react"
 import "./ProductDetail.css"
@@ -68,7 +69,7 @@ const ProductDetail = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <img src={product.image || "/placeholder.svg"} alt={product.name} />
+            <LazyImage src={product.image || "/placeholder.svg"} alt={product.name} />
           </motion.div>
 
           <motion.div

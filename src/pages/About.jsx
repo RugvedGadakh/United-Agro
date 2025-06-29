@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Award, Users, Leaf, Globe } from "lucide-react"
 import "./About.css"
 import OurJourney from "../components/about/OurJourney"
+import LazyImage from "../components/LazyImage"
 import VisionMission from "../components/about/VisionMisson"
 import OurLeaders from "../components/about/OurLeaders"
 
@@ -57,7 +58,7 @@ const About = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <img src="https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751119066/about1_11zon_qyl6wk.jpg" alt="Our facility" />
+              <LazyImage src="https://res.cloudinary.com/dcxxiwmdo/image/upload/v1751119066/about1_11zon_qyl6wk.jpg" alt="Our facility" />
             </motion.div>
           </div>
         </div>
