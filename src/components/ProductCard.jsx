@@ -2,6 +2,7 @@
 
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
+import LazyImage from "./LazyImage"
 import "./ProductCard.css"
 
 const ProductCard = ({ product }) => {
@@ -14,7 +15,7 @@ const ProductCard = ({ product }) => {
       viewport={{ once: true }}
     >
       <div className="product-image">
-        <img src={product.image || "/placeholder.svg"} alt={product.name} />
+        <LazyImage src={product.image || "/placeholder.svg"} alt={product.name} />
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>

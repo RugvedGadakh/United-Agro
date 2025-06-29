@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import LazyImage from "../LazyImage"
 import { useState } from "react"
 import { MapPin, Users, Award, Factory, Globe } from "lucide-react"
 import "./about.css"
@@ -76,7 +77,7 @@ const OurJourney = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="timeline-image">
-              <img src={milestones[activeYear].image || "/placeholder.svg"} alt={milestones[activeYear].title} />
+              <LazyImage src={milestones[activeYear].image || "/placeholder.svg"} alt={milestones[activeYear].title} />
             </div>
             <div className="timeline-details">
               <div className="timeline-year">{milestones[activeYear].year}</div>
