@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Linkedin, Mail, Award } from "lucide-react"
+import LazyImage from "../LazyImage"
 
 const OurLeaders = () => {
   const leaders = [
@@ -69,7 +70,7 @@ const OurLeaders = () => {
               whileHover={{ y: -10 }}
             >
               <div className="leader-image">
-                <img src={leader.image || "/placeholder.svg"} alt={leader.name} />
+                <LazyImage src={leader.image || "/placeholder.svg"} alt={leader.name} />
                 <div className="leader-overlay">
                   <div className="leader-social">
                     <a href={leader.linkedin} aria-label="LinkedIn">

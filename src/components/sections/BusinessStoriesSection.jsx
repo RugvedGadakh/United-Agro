@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { Calendar, ArrowRight, Tag, Clock } from "lucide-react"
+import { Tag, Calendar, Clock, ArrowRight } from "lucide-react"
+import LazyImage from "../LazyImage"
 import "./sections.css"
 
 const BusinessStoriesSection = () => {
@@ -144,7 +145,7 @@ const BusinessStoriesSection = () => {
               viewport={{ once: true }}
             >
               <div className="story-image">
-                <img src={featuredStory.image || "/placeholder.svg"} alt={featuredStory.title} />
+                <LazyImage src={featuredStory.image || "/placeholder.svg"} alt={featuredStory.title} />
                 <div className="featured-badge">Featured</div>
               </div>
               <div className="story-content">
@@ -182,7 +183,7 @@ const BusinessStoriesSection = () => {
                 viewport={{ once: true }}
               >
                 <div className="story-image">
-                  <img src={story.image || "/placeholder.svg"} alt={story.title} />
+                  <LazyImage src={story.image || "/placeholder.svg"} alt={story.title} />
                 </div>
                 <div className="story-content">
                   <div className="story-meta">

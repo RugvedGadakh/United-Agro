@@ -3,17 +3,20 @@
 import { Routes, Route, useLocation } from "react-router-dom"
 import { AnimatePresence } from "framer-motion"
 import { Helmet } from "react-helmet-async"
-import { useEffect } from "react"
+import { useEffect, lazy, Suspense } from "react"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
-import Home from "./pages/Home"
-import Products from "./pages/Products"
-import ProductDetail from "./pages/ProductDetail"
-import About from "./pages/About"
-import Contact from "./pages/Contact"
-import Brochure from "./pages/Brochure"
-import ChatbotComponent from "./components/ChatbotComponent"
 import "./App.css"
+
+// Lazy-load route components to enable automatic code-splitting
+const Home = lazy(() => import("./pages/Home"))
+const Products = lazy(() => import("./pages/Products"))
+const ProductDetail = lazy(() => import("./pages/ProductDetail"))
+const About = lazy(() => import("./pages/About"))
+const Contact = lazy(() => import("./pages/Contact"))
+const Brochure = lazy(() => import("./pages/Brochure"))
+// Non-critical widget; defer loading until requested
+const ChatbotComponent = lazy(() => import("./components/ChatbotComponent"))
 
 function App() {
   const location = useLocation()
@@ -69,18 +72,21 @@ function App() {
 
       <Header />
       <main>
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/:id" element={<ProductDetail />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/brochure" element={<Brochure />} />
-          </Routes>
-        </AnimatePresence>
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/brochure" element={<Brochure />} />
+            </Routes>
+            {/* Lazy loaded widget */}
+            <ChatbotComponent />
+          </AnimatePresence>
+        </Suspense>
       </main>
-      <ChatbotComponent />
       <Footer />
     </div>
   )
