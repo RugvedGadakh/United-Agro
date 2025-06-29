@@ -26,15 +26,41 @@ const LeadForm = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Form submitted:", formData)
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.interest) {
+      alert("Please fill out all required fields.")
       setLoading(false)
+      return
+    }
+
+    const payload = {
+      fullName: formData.name,
+      emailAddress: formData.email,
+      phoneNumber: formData.phone,
+      companyName: formData.company,
+      interestedIn: formData.interest,
+      message: formData.message,
+    }
+
+    try {
+      const response = await fetch("https://agro-food-tech-be.onrender.com/api/queries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form")
+      }
+
       setSubmitted(true)
+      setLoading(false)
 
       // Reset form after 3 seconds
       setTimeout(() => {
@@ -48,7 +74,11 @@ const LeadForm = () => {
           interest: "",
         })
       }, 3000)
-    }, 1500)
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      setLoading(false)
+      alert("There was an error submitting the form. Please try again later.")
+    }
   }
 
   return (
@@ -63,38 +93,80 @@ const LeadForm = () => {
         >
           <div className="form-group">
             <label htmlFor="name">Full Name*</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              autoComplete="name"
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="email">Email Address*</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              autoComplete="email"
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              autoComplete="tel"
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="company">Company Name</label>
-            <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} />
+            <input
+              type="text"
+              id="company"
+              name="company"
+              value={formData.company}
+              onChange={handleChange}
+              autoComplete="organization"
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="interest">Interested In*</label>
-            <select id="interest" name="interest" value={formData.interest} onChange={handleChange} required>
+            <select
+              id="interest"
+              name="interest"
+              value={formData.interest}
+              onChange={handleChange}
+              required
+            >
               <option value="">Select an option</option>
-              <option value="wholesale">Wholesale Purchase</option>
-              <option value="retail">Retail Information</option>
-              <option value="distribution">Distribution Partnership</option>
-              <option value="other">Other</option>
+              <option value="WholeSale Purchase">Wholesale Purchase</option>
+              <option value="Retail Information">Retail Information</option>
+              <option value="Distribution Partnership">Distribution Partnership</option>
+              <option value="Other">Other</option>
             </select>
           </div>
 
           <div className="form-group">
             <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4}></textarea>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              rows={4}
+            ></textarea>
           </div>
 
           <button type="submit" className="btn btn-submit" disabled={loading}>
